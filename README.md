@@ -120,3 +120,5 @@ Watch the 10-minute presentation video showcasing the car rental AI customer sup
 
 [Watch the Presentation Video](https://drive.google.com/file/d/1P8LLI2Q6xPwy7oYWgX2q9kElnZkvzTWB/view?usp=sharing)
 
+
+### **In this video, you'll see the AI agent interacting with users, including tests with intentionally poor English to demonstrate its ability to handle and understand varied language proficiency. The video includes examples of the AI responding to queries despite non-standard or less accurate English inputs, highlighting its robustness and adaptability in real-world scenarios.**
