@@ -24,11 +24,19 @@ This project showcases an AI-powered customer support agent integrated into a ca
 - **Streamlit Demo**: A fully functional Streamlit demo where the AI agent interacts with the car rental system in real-time.
 
 ### Core Functionalities:
-- Car Search and Booking
-- Availability Check
-- Booking Management (Update, Cancel, Confirm)
-- User Information Management
-- Policy Lookup and Compliance
+
+- **Search for Cars**: Search for cars based on various criteria such as name, type, price range, and availability within a specified date range.
+- **Book a Car**: Book a car for a specified period. Bookings are initially pending confirmation and need manual confirmation by the user.
+- **Retrieve Company Policies**: Retrieve company policies related to bookings, cancellations, and other services.
+- **Check Car Availability**: Verify if a specific car is available for the desired dates.
+- **Cancel a Booking**: Cancel an existing booking by updating its status to 'Cancelled'.
+- **Update a Booking**: Modify an existing booking with new start and end dates, ensuring availability for the new dates.
+- **Show Pending Bookings**: Display a list of cars that the user has booked but not yet confirmed.
+- **Show Confirmed Bookings**: Display a list of cars that the user has confirmed bookings for.
+- **Show Booking History**: Display the user’s last 5 bookings history (more than 5 require manual checking).
+- **Show Personal Information**: Display the user’s personal information stored in the system.
+- **Get Car Information**: Provide detailed information about a specific car.
+- **List All Cars**: List all available cars in the inventory.
 
 ## Installation
 
@@ -37,8 +45,8 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/car-rental-ai-support.git
-    cd car-rental-ai-support
+    git clone https://github.com/Doumiri-Ali/AI-AGENTS-Costumer-Support-demo.git
+    cd AI-AGENTS-Costumer-Support-demo
     ```
 
 2. Install the required Python packages:
@@ -56,7 +64,7 @@ To run this project locally, follow these steps:
 4. Start the Streamlit application:
 
     ```bash
-    streamlit run app.py
+    streamlit run Rental-Car-Business-Demo/pages/login.py
     ```
 
 ## Usage
@@ -74,8 +82,7 @@ After starting the Streamlit application, you can interact with the AI-powered c
 
 The application uses configuration files to manage various aspects of the system:
 
-- `conf.py`: Contains environment variables and file paths for cars, bookings, and user data.
-- `conf2.py`: Manages policy rules and vector store retrieval for policy compliance and document similarity checks.
+- `conf.py`: Contains environment variables and file paths for cars, bookings, user data, manages policy rules and vector store retrieval for policy compliance and document similarity checks.
 
 ### Key Configuration Files
 - `company_rules.md`: Contains business rules and policies in Markdown format.
