@@ -6,7 +6,6 @@ This repository contains a car rental AI customer support system, built using La
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
 - [API Integration](#api-integration)
 - [State Management and Error Handling](#state-management-and-error-handling)
@@ -56,9 +55,9 @@ To run this project locally, follow these steps:
 
 3. Set up your environment variables:
    - `GROQ_API_KEY`: Your API key for Groq.
-   - Optionally, set up other API keys if using alternative LLMs:
+   - `$HUGGING_FACE_API_KEY$`: Your API key for Hugging face.
+   - Optionally, set up other API keys if using alternative ANTHROPIC LLM :
      - `ANTHROPIC_API_KEY`
-     - `TAVILY_API_KEY`
 
 4. Start the Streamlit application:
 
@@ -66,16 +65,6 @@ To run this project locally, follow these steps:
     streamlit run Rental-Car-Business-Demo/pages/login.py
     ```
 
-## Usage
-
-After starting the Streamlit application, you can interact with the AI-powered car rental system through the user-friendly interface. The AI agent can handle various tasks:
-
-- **Search for Cars**: Find available cars based on name, type, price range, and rental period.
-- **Book a Car**: Reserve a car for a specific rental period.
-- **Manage Bookings**: Update, cancel, or confirm bookings.
-- **Check Availability**: Verify if a car is available for a desired rental period.
-- **User Information**: View and manage personal information and booking history.
-- **Policy Lookup**: Consult company policies for rental terms and conditions.
 
 ## Configuration
 
