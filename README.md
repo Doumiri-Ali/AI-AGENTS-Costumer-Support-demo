@@ -110,9 +110,6 @@ The system employs robust state management and error handling mechanisms:
 - **State Management**: Functions to clean and update message states.
 - **Error Handling**: Functions to handle tool errors and provide fallback options.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Presentation Video
 
