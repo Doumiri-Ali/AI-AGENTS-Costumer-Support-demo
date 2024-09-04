@@ -10,7 +10,6 @@ This repository contains a car rental AI customer support system, built using La
 - [Configuration](#configuration)
 - [API Integration](#api-integration)
 - [State Management and Error Handling](#state-management-and-error-handling)
-- [License](#license)
 
 ## Project Overview
 
