@@ -118,5 +118,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Watch the 10-minute presentation video showcasing the car rental AI customer support system:
 
-[Watch the Presentation Video](https://isgacloud.sharepoint.com/sites/AtelieretProjettuteur2CI-ISITA23-24-Projet04_Chatbot/_layouts/15/stream.aspx?id=%2Fsites%2FAtelieretProjettuteur2CI%2DISITA23%2D24%2DProjet04%5FChatbot%2FDocuments%20partages%2FProjet%2004%20%5FChatbot%20Intelligent%20pour%20le%20Support%20Cli%2FPFA%5FCS%5FCHATBOT%2F2%2Emov&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ec71600fb%2Da45b%2D468e%2D862d%2Db0081b144573)
+[Watch the Presentation Video](https://drive.google.com/file/d/1P8LLI2Q6xPwy7oYWgX2q9kElnZkvzTWB/view?usp=sharing)
 
