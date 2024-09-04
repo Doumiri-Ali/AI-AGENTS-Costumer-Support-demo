@@ -14,12 +14,12 @@ This repository contains a car rental AI customer support system, built using La
 
 ## Project Overview
 
-This project showcases an AI-powered customer support agent integrated into a car rental service demo. The agent is designed to handle various tasks related to car rentals, including searching for available cars, booking rentals, checking availability, and managing user information. The agent leverages LLaMA 3 models, providing powerful language understanding and generation capabilities, while interacting with the backend system through a Streamlit interface.
+This project showcases an AI-powered customer support agent integrated into a car rental service demo. The agent is designed to handle various tasks related to car rentals, including searching for available cars, booking rentals, checking availability, and managing user information. The agent leverages **LLaMA 3 70B** model, providing powerful language understanding and generation capabilities, while interacting with the backend system through a Streamlit interface.
 
 ## Features
 
-- **AI Customer Support**: The AI agent assists users with booking cars, checking availability, and managing reservations.
-- **Zero-Shot Learning**: The agent uses a zero-shot learning approach, allowing it to handle diverse queries without specific training on the tasks.
+- **AI Customer Support**: The AI agent assists users with booking cars, checking availability, managing reservations and more ...
+- **Zero-Shot Agent**: The Zero-Shot Agent operates with the simplest working implementation, relying on tools provided and prompting it to use them effectively to assist users. 
 - **Groq API Integration**: The AI agent is powered by Groq API, enabling efficient processing of user queries and interactions.
 - **Streamlit Demo**: A fully functional Streamlit demo where the AI agent interacts with the car rental system in real-time.
 
@@ -113,3 +113,10 @@ The system employs robust state management and error handling mechanisms:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Presentation Video
+
+Watch the 10-minute presentation video showcasing the car rental AI customer support system:
+
+[Watch the Presentation Video](https://isgacloud.sharepoint.com/sites/AtelieretProjettuteur2CI-ISITA23-24-Projet04_Chatbot/_layouts/15/stream.aspx?id=%2Fsites%2FAtelieretProjettuteur2CI%2DISITA23%2D24%2DProjet04%5FChatbot%2FDocuments%20partages%2FProjet%2004%20%5FChatbot%20Intelligent%20pour%20le%20Support%20Cli%2FPFA%5FCS%5FCHATBOT%2F2%2Emov&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ec71600fb%2Da45b%2D468e%2D862d%2Db0081b144573)
+
