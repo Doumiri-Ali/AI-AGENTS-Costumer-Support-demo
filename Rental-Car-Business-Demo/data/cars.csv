@@ -1,0 +1,21 @@
+car_id,name,car_type,price,year,fuel_type,transmission,mileage,image_path
+1,Toyota Camry,Sedan,45,2021,Gasoline,Automatic,15000,Rental-Car-Business-Demo/assets/images/toyota_camry.png
+2,Honda Civic,Sedan,50,2020,Gasoline,Automatic,20000,Rental-Car-Business-Demo/assets/images/honda_civic.png
+3,Ford Mustang,Sports,70,2022,Gasoline,Manual,10000,Rental-Car-Business-Demo/assets/images/ford_mustang.png
+4,Chevrolet Malibu,Sedan,55,2021,Gasoline,Automatic,12000,Rental-Car-Business-Demo/assets/images/chevrolet_malibu.png
+5,BMW X5,SUV,80,2022,Gasoline,Automatic,18000,Rental-Car-Business-Demo/assets/images/bmw_x5.png
+6,Audi Q7,SUV,85,2021,Diesel,Automatic,16000,Rental-Car-Business-Demo/assets/images/audi_q7.png
+7,Mercedes-Benz E-Class,Luxury,95,2023,Gasoline,Automatic,5000,Rental-Car-Business-Demo/assets/images/mercedes_benz_e_class.png
+8,Lexus RX 350,SUV,90,2023,Hybrid,Automatic,8000,Rental-Car-Business-Demo/assets/images/lexus_rx_350.png
+9,Porsche 911,Luxury,120,2022,Gasoline,Manual,6000,Rental-Car-Business-Demo/assets/images/porsche_911.png
+10,Chevrolet Corvette,Luxury,130,2021,Gasoline,Automatic,7000,Rental-Car-Business-Demo/assets/images/chevrolet_corvette.png
+11,Jaguar F-Type,Luxury,140,2022,Gasoline,Automatic,4000,Rental-Car-Business-Demo/assets/images/jaguar_f_type.png
+12,Mazda MX-5 Miata,Convertible,75,2020,Gasoline,Manual,12000,Rental-Car-Business-Demo/assets/images/mazda_mx5_miata.png
+13,Volkswagen Jetta,Sedan,50,2021,Gasoline,Automatic,20000,Rental-Car-Business-Demo/assets/images/volkswagen_jetta.png
+14,Hyundai Sonata,Sedan,55,2022,Gasoline,Automatic,18000,Rental-Car-Business-Demo/assets/images/hyundai_sonata.png
+15,Nissan Altima,Sedan,60,2021,Gasoline,Automatic,17000,Rental-Car-Business-Demo/assets/images/nissan_altima.png
+16,Kia Optima,Sedan,65,2023,Gasoline,Automatic,15000,Rental-Car-Business-Demo/assets/images/kia_optima.png
+17,Ford Explorer,SUV,85,2022,Gasoline,Automatic,22000,Rental-Car-Business-Demo/assets/images/ford_explorer.png
+18,Toyota Highlander,SUV,90,2021,Gasoline,Automatic,21000,Rental-Car-Business-Demo/assets/images/toyota_highlander.png
+19,Honda Pilot,SUV,95,2023,Gasoline,Automatic,19000,Rental-Car-Business-Demo/assets/images/honda_pilot.png
+20,Jeep Grand Cherokee,SUV,100,2021,Diesel,Automatic,20000,Rental-Car-Business-Demo/assets/images/jeep_grand_cherokee.png
