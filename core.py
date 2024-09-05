@@ -487,6 +487,9 @@ def booking_update(booking_id: int, new_start_date: str, new_end_date: str) -> d
 
         # Retrieve the booking and car information
         booking = bookings_df[bookings_df['booking_id'] == booking_id].iloc[0]
+        if booking.booking_status == 2:
+            return {"error": f"Booking ID {booking_id} is already confirmed, you need to update it manually by cancel it and rebook it with the updates"}
+
         car_id = booking['car_id']
 
         # Parse the new start and end dates
@@ -720,6 +723,18 @@ def update_tool_messages(message):
     car_ids = re.findall(r'car_id.*?(\d+)', content)
     if car_ids:
         extracted_info.extend([{'car_id': int(cid)} for cid in car_ids])
+
+    name = re.findall(r'name.*?(\d+)', content)
+    if name:
+        extracted_info.extend([{'name': str(n)} for n in name])
+
+    st_date = re.findall(r'start_date.*?(\d+)', content)
+    if st_date:
+        extracted_info.extend([{'start_date': dt} for dt in st_date])
+
+    end_date = re.findall(r'end_date.*?(\d+)', content)
+    if end_date:
+        extracted_info.extend([{'end_date': dt} for dt in end_date])
 
     # Convert the extracted information to JSON string
     if extracted_info:
