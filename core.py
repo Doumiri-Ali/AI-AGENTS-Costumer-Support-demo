@@ -704,47 +704,51 @@ class State(TypedDict):
 
 
 def update_tool_messages(message):
-    updated_messages = []
 
-    #for message in tool_messages:
+
+
+    # for message in tool_messages:
     content = str(message.content)
-
 
     # Initialize a list to store the extracted IDs
     extracted_info = []
+    combined_info = []
+    # Regular expressions to extract the information
+    booking_ids = re.findall(r'"booking_id":\s*(\d+)', content)
+    car_ids = re.findall(r'"car_id":\s*(\d+)', content)
+    names = re.findall(r'"name":\s*"(.*?)"', content)
+    start_dates = re.findall(r'"start_date":\s*"(.*?)"', content)
+    end_dates = re.findall(r'"end_date":\s*"(.*?)"', content)
 
+    # Maximum length of extracted lists to handle cases where some fields are missing
+    max_len = max(len(booking_ids), len(car_ids), len(names), len(start_dates), len(end_dates))
 
-    # Extract standalone booking_id
-    booking_ids = re.findall(r'booking_id.*?(\d+)', content)
-    if booking_ids :
-        extracted_info.extend([{'booking_id': int(bid)} for bid in booking_ids])
+    # Combine extracted information into dictionaries, handling missing fields
+    for i in range(max_len):
+        booking_dict = {}
+        if i < len(booking_ids):
+            booking_dict['booking_id'] = int(booking_ids[i])
+        if i < len(car_ids):
+            booking_dict['car_id'] = int(car_ids[i])
+        if i < len(names):
+            booking_dict['name'] = names[i]
+        if i < len(start_dates):
+            booking_dict['start_date'] = start_dates[i]
+        if i < len(end_dates):
+            booking_dict['end_date'] = end_dates[i]
 
-    # Extract standalone car_id
-    car_ids = re.findall(r'car_id.*?(\d+)', content)
-    if car_ids:
-        extracted_info.extend([{'car_id': int(cid)} for cid in car_ids])
+        combined_info.append(booking_dict)
 
-    name = re.findall(r'name.*?(\d+)', content)
-    if name:
-        extracted_info.extend([{'name': str(n)} for n in name])
-
-    st_date = re.findall(r'start_date.*?(\d+)', content)
-    if st_date:
-        extracted_info.extend([{'start_date': dt} for dt in st_date])
-
-    end_date = re.findall(r'end_date.*?(\d+)', content)
-    if end_date:
-        extracted_info.extend([{'end_date': dt} for dt in end_date])
-
-    # Convert the extracted information to JSON string
-    if extracted_info:
-        content = json.dumps(extracted_info)
+    # Convert the extracted information to a JSON string
+    if combined_info:
+        content = json.dumps(combined_info)
 
     # Update the message with the filtered content
     message.content = content
-        #updated_messages.append(updated_message)
+    # updated_messages.append(updated_message)
 
     return message
+
 
 def clean_state(state):
     cleaned_messages = []
@@ -787,7 +791,7 @@ def clean_state(state):
         # Identify tool-related messages (middle steps)
         elif isinstance(message, ToolMessage):
             if ('booking_id' in str(message.content)) or ('car_id' in str(message.content)):
-            #middle_steps.append(message)
+                # middle_steps.append(message)
                 cleaned_messages.append(message)
             else:
                 middle_steps.append(message)
@@ -796,9 +800,41 @@ def clean_state(state):
 
     return {'messages': cleaned_messages}
 
+def clean_state2(state):
+    cleaned_messages = []
+    middle_steps = []
+    users = 0
+    bots = 0
 
+    for message in state.get("messages"):
+        # Identify user input
+        if isinstance(message, HumanMessage):
+            user_input = message
+            cleaned_messages.append(user_input)
+            users += 1
 
+        # Identify bot response
+        elif isinstance(message, AIMessage):
+            if message.content and message.response_metadata:
+                # Before appending the bot's response, ensure any middle_steps are added
+                cleaned_messages.append(message)
+                bots += 1
 
+                # After appending, if users == bots, update and append middle_steps
+                if users == bots:
+                    cleaned_messages = [msg for msg in cleaned_messages if msg not in middle_steps]
+                    middle_steps = []
+            else:
+                cleaned_messages.append(message)
+                middle_steps.append(message)
+
+        # Identify tool-related messages (middle steps)
+        elif isinstance(message, ToolMessage):
+                middle_steps.append(message)
+                cleaned_messages.append(message)
+            # Appending immediately, but will be updated later
+
+    return {'messages': cleaned_messages}
 class Assistant:
     def __init__(self, runnable: Runnable):
         self.runnable = runnable
@@ -809,19 +845,26 @@ class Assistant:
             passenger_id = configuration.get("user_info", None)
             state = {**state, "user_info": passenger_id}
             state = clean_state(state)
+            for e in state.get("messages"):
+                print(e,'\n\n')
 
             if len(state.get("messages")) >= 2:
                 if state.get("messages")[-2].response_metadata:
                     tokens = state.get("messages")[-2].response_metadata['token_usage']['total_tokens']
-                    if tokens < 6500 and tokens > 5000 :
-                        state["messages"] = state.get("messages")[-4:]
-                    elif tokens > 6500:
+                    if tokens < 7000 and tokens > 5000:
                         state["messages"] = state.get("messages")[-3:]
-            else:
-                state["messages"] = state.get("messages")
+                    elif tokens > 7000:
+                        state = clean_state2(state)
+                        state["messages"] = state.get("messages")[-4:]
 
-            result = self.runnable.invoke(state)
 
+            try :
+                result = self.runnable.invoke(state)
+            except Exception as e:
+                print("--------------------------\n",e)
+                result = "Can you clarify your request please !"
+                print("\nclearing\n---------------------")
+                break
             # If the LLM happens to return an empty response, we will re-prompt it
             # for an actual response and remove the empty result from the history.
             if not result.tool_calls and (
@@ -918,6 +961,8 @@ builder.add_edge("tools", "assistant")
 # The checkpointer lets the graph persist its state
 # this is a complete memory for the entire graph.
 memory = MemorySaver()
+
 part_1_graph = builder.compile(checkpointer=memory)
+
 
 
